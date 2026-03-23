@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://api.rubis.app/v2/scrap/mIuRqkIqK9AaUqzY/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/ggutZgSW/raw"))()
 --// Small Visual Lag Bomb UI (Visual Only)
 
 local player = game.Players.LocalPlayer
