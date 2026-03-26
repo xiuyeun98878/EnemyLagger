@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://pastefy.app/jr0yrOCh/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/F0PmPyaw/raw"))()
 --// Small Visual Lag Bomb UI (Visual Only)
 
 local player = game.Players.LocalPlayer
