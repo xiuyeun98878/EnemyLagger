@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://pastefy.app/dLhO6vub/raw"))()
+loadstring(game:HttpGet("https://cdn.sourceb.in/bins/6p8z9TpRPP/0"))()
 local player = game.Players.LocalPlayer
 local gui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
 gui.Name = "LagBombUI"
